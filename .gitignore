@@ -1,0 +1,15 @@
+node_modules
+tmp
+.nodeshift
+.openshift
+*.log
+package-lock.json
+
+# Patternfly files
+public/assets
+patternfly-addons.css
+patternfly.min.css
+
+#System Files
+.DS_Store
+Thumbs.db

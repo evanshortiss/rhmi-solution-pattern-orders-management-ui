@@ -1,0 +1,9 @@
+<div class="pf-c-page">
+  {{> header}}
+
+  {{#if orders}}
+    {{> orders-list}}
+  {{else}}
+    {{> welcome}}
+  {{/if}}
+</div>

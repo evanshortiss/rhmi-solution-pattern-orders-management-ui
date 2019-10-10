@@ -1,0 +1,54 @@
+{
+  "name": "rhmi-solution-pattern-order-management-ui",
+  "version": "1.0.0",
+  "description": "The UI used in RHMI Solution Patterns to manage orders",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard --fix app.js lib/*.js",
+    "build": "npm run copy:patternfly-assets",
+    "openshift": "nodeshift --strictSSL=false --nodeVersion=10.x",
+    "copy:patternfly-assets": "cp -R node_modules/@patternfly/patternfly/assets public && cp node_modules/@patternfly/patternfly/patternfly.min.css public/patternfly.min.css && cp node_modules/@patternfly/patternfly/patternfly-addons.css public/patternfly-addons.css",
+    "postinstall": "npm run copy:patternfly-assets",
+    "start": "node .",
+    "start:dev": "LOG_LEVEL=trace NODE_ENV=local nodemon . | pino-pretty -t",
+    "start:inspect": "LOG_LEVEL=trace NODE_ENV=local node --inspect . | pino-pretty -t"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanshortiss/rhmi-solution-pattern-order-management-ui.git"
+  },
+  "author": "Evan Shortiss <evanshortiss@gmail.com>",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/evanshortiss/rhmi-solution-pattern-order-management-ui/issues"
+  },
+  "homepage": "https://github.com/evanshortiss/rhmi-solution-pattern-order-management-ui#readme",
+  "devDependencies": {
+    "@types/express": "~4.17.1",
+    "@types/node": "~12.7.12",
+    "husky": "^3.0.8",
+    "nodemon": "~1.19.3",
+    "nodeshift": "~3.1.1",
+    "pino-pretty": "~3.2.2",
+    "standard": "~14.3.1"
+  },
+  "dependencies": {
+    "@patternfly/patternfly": "~2.34.0",
+    "env-var": "~5.1.0",
+    "express": "~4.17.1",
+    "express-handlebars": "~3.1.0",
+    "express-session": "~1.16.2",
+    "got": "^9.6.0",
+    "helmet": "^3.21.1",
+    "keycloak-connect": "~7.0.0",
+    "kube-probe": "~0.3.2",
+    "pino": "~5.13.4"
+  }
+}
