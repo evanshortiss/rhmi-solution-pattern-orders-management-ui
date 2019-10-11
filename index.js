@@ -58,7 +58,7 @@ app.get('/', async (req, res, next) => {
 app.use((req, res) => {
   res.render('error.handlebars', {
     title: '404 - Not Found',
-    desciption: 'Looks like you entered an invalid URL or followed a broken link. Use the button below to get back to the application.'
+    description: 'Looks like you entered an invalid URL or followed a broken link. Use the button below to get back to the application.'
   })
 })
 
